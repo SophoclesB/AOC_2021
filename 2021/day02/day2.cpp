@@ -10,14 +10,14 @@ const string dayTwoInput = "day2.txt";
 
 vector<string> fileInput(string input)
 {
-	// converts the textfile into a vector of ints
+	// converts the textfile into a vector of strings
 	string temp;
 	vector<string> deptharray = {};
 	std::ifstream input_file(input);
 
 	while (getline(input_file, temp))
 	{
-		deptharray.push_back((temp));
+		deptharray.push_back(temp);
 	}
 	input_file.close();
 	return deptharray;
@@ -32,7 +32,7 @@ int part1(vector<string> input1)
 	std::regex down("down");
 	string temp_string;
 
-	for (int i = 0; i < input1.size(); ++i)
+	for (int i = 0; i < input1.size(); ++i) // search for any of the regular expressions in each string
 	{
 		temp_string = input1[i];
 		if(std::regex_search(temp_string, forward))
@@ -57,7 +57,7 @@ int part2(vector<string> input2)
 	std::regex down("down");
 	string temp_string;
 
-	for(int i = 0; i < input2.size(); ++i)
+	for(int i = 0; i < input2.size(); ++i) // same as part1 for loop
 	{
 		temp_string = input2[i];
 		if(std::regex_search(temp_string, up))
